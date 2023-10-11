@@ -6,10 +6,12 @@
 * 2206829591 - Sabrina Atha Shania
 * 2206081780 - Novrizal Airsyahputra
 
-Nama aplikasi
+### Nama aplikasi
+
 mutualibri
 
-**Latar belakang**
+### Latar belakang
+
 Perilaku siswa yang semakin beralih ke dunia digital dan bergantung pada internet telah mengalami transformasi yang signifikan dalam beberapa tahun terakhir. Saat ini, banyak siswa mengandalkan internet untuk mengejar pengetahuan, melakukan penelitian, dan memenuhi kebutuhan akademik mereka. Siswa seringkali bergantung pada internet untuk akses sejumlah besar sumber informasi yang tersedia dalam sekejap, sehingga mereka dapat mengeksplorasi berbagai topik dengan cepat dan efisien. Mereka menggunakan mesin pencari, platform pembelajaran online, dan sumber daya digital lainnya untuk membantu dalam tugas-tugas akademik mereka. Internet juga memungkinkan siswa untuk terhubung dengan sesama mahasiswa, guru, atau ahli di bidang tertentu melalui jejaring sosial, forum, dan komunitas online.
 
 Kebutuhan akademik siswa juga berhubungan dengan perpustakaan, namun ketika siswa mencoba meminjam buku di perpustakaan, mereka sering menghadapi beberapa kesulitan yang dapat mempengaruhi pengalaman mereka. Salah satu masalah umum adalah antrian panjang di meja layanan atau keterbatasan jam operasional perpustakaan, yang membuat mereka harus menunggu lama sebelum mendapatkan akses ke buku yang mereka butuhkan. Kurangnya informasi terkait buku-buku yang terdapat dalam perpustakaan juga menjadi masalah yang sering dihadapi oleh siswa. 
@@ -18,10 +20,15 @@ Perpustakaan memiliki koleksi buku yang sangat luas, namun informasi tentang buk
 
 Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen perpustakaan serta upaya untuk mengumpulkan informasi buku yang lebih lengkap dan relevan.  Dengan menghadirkan aplikasi perpustakaan online, dapat mempermudah siswa memperoleh akses yang lebih baik ke informasi buku. Aplikasi web ini adalah solusi modern yang mengubah cara kita mengakses dan menikmati buku. Dengan kemajuan teknologi, kita tidak lagi terbatas pada perpustakaan fisik atau toko buku konvensional. Melalui aplikasi web ini, siswa dapat menjelajahi koleksi buku yang luas dan beragam dari kenyamanan rumah mereka sendiri. Tidak hanya itu, tetapi aplikasi ini juga memungkinkan siswa dapat dengan mudah meminjam buku yang mereka inginkan.
 
-**Gambaran besar aplikasi**
+### Gambaran besar aplikasi
+
+**Deskripsi Aplikasi Web**
+
+
 ‘mututalibri’ adalah sebuah situs seperti perpustakaan online yang dirancang sebagai wadah siswa mencari dan menemukan buku. Situs ini menghadirkan proses peminjaman buku online kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Situs ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
 
 **Fitur/Modul**
+
 Aplikasi web ini akan terdiri dari 4 modul, diantaranya sebagai berikut.
 1. Melakukan pencarian buku yang tersedia dalam katalog perpustakaan 
     Modul ini dirancang untuk membantu siswa menemukan dan mengakses buku dalam katalog perpustakaan. Siswa dapat menggunakan aplikasi ini untuk mencari buku berdasarkan judul atau kata kunci lainnya. Aplikasi akan memberikan informasi detail tentang buku-buku yang sesuai, termasuk sinopsis, ireview, dan quotes yang dapat ditambahkan oleh user. Siswa juga dapat melihat ketersediaan buku tersebut untuk dipinjam.
@@ -36,6 +43,7 @@ Aplikasi web ini akan terdiri dari 4 modul, diantaranya sebagai berikut.
     Modul ini dirancang untuk membagikan kutipan (quotes) dari buku yang siswa baca berdasarkan judul buku tertentu. Ide utamanya adalah menciptakan satu tempat di mana siswa dapat berbagi kutipan favorit mereka dari buku favorit mereka dan siswa lain dapat membaca kutipan buku tersebut.
 
 **Roles**
+
 1. Modul
     Mencari buku - buku yang tersedia pada perpustakaan (katalog) - Samuel Widjaja
     Melakukan peminjaman online terhadap buku yang diinginkan - Sabrina Atha Shania
@@ -55,6 +63,7 @@ Aplikasi web ini akan terdiri dari 4 modul, diantaranya sebagai berikut.
     Administrator dapat mengawasi dan mengatur proses peminjaman buku. Ini melibatkan tindakan seperti menyetujui permintaan peminjaman, mencatat pengembalian buku, dan mengelola status peminjaman.
 
 **User**
+
 1. Katalog Buku
     Pengguna memiliki kemampuan untuk mencari buku dari daftar katalog dengan kata kunci, seperti judul. Pengguna juga dapat melihat detail buku seperti judul, sinopsis, rating ulasan, dan dapat juga menulis kutipan.
 2. Peminjaman Buku
