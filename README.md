@@ -2,9 +2,9 @@
 
 ### Developer Team :
 * 2206083691 - Fari Hafizh Ramadhan
+* 2206081780 - Novrizal Airsyahputra
 * 2206081906 - Samuel Widjaja
 * 2206829591 - Sabrina Atha Shania
-* 2206081780 - Novrizal Airsyahputra
 
 ### Nama aplikasi
 
@@ -24,51 +24,49 @@ Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen pe
 
 **Deskripsi Aplikasi Web**
 
-
 ‘mututalibri’ adalah sebuah situs seperti perpustakaan online yang dirancang sebagai wadah siswa mencari dan menemukan buku. Situs ini menghadirkan proses peminjaman buku online kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Situs ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
 
 **Fitur/Modul**
 
 Aplikasi web ini akan terdiri dari 4 modul, diantaranya sebagai berikut.
 1. Melakukan pencarian buku yang tersedia dalam katalog perpustakaan 
+
     Modul ini dirancang untuk membantu siswa menemukan dan mengakses buku dalam katalog perpustakaan. Siswa dapat menggunakan aplikasi ini untuk mencari buku berdasarkan judul atau kata kunci lainnya. Aplikasi akan memberikan informasi detail tentang buku-buku yang sesuai, termasuk sinopsis, ireview, dan quotes yang dapat ditambahkan oleh user. Siswa juga dapat melihat ketersediaan buku tersebut untuk dipinjam.
 
 2. Menyediakan alur peminjaman buku secara online yang memungkinkan siswa untuk meminjam buku yang mereka inginkan
+
     Modul ini dirancang untuk membantu siswa memilih buku yang ingin mereka pinjam dan menandai buku tersebut untuk peminjaman. Proses peminjaman biasanya melibatkan menentukan periode peminjaman dan jumlah buku yang ingin dipinjam. Setelah buku dipinjam, siswa akan menerima konfirmasi peminjaman. 
 
 3. Menulis ulasan mengenai buku yang telah dibaca
+
     Modul ini dirancang untuk menilai buku dan memberikan ulasan terperinci. Siswa dapat memberikan penilaian dalam bentuk like or dislike terhadap buku yang mereka baca, serta menulis ulasan yang mencakup aspek-aspek seperti plot, karakter, gaya penulisan, dan pesan yang disampaikan oleh buku tersebut.
 
 4. Menyajikan seluruh quotes yang ditambahkan oleh user berdasarkan judul buku 
+
     Modul ini dirancang untuk membagikan kutipan (quotes) dari buku yang siswa baca berdasarkan judul buku tertentu. Ide utamanya adalah menciptakan satu tempat di mana siswa dapat berbagi kutipan favorit mereka dari buku favorit mereka dan siswa lain dapat membaca kutipan buku tersebut.
 
 **Roles**
 
 1. Modul
-    Mencari buku - buku yang tersedia pada perpustakaan (katalog) - Samuel Widjaja
-    Melakukan peminjaman online terhadap buku yang diinginkan - Sabrina Atha Shania
-    Mereview buku yang telah dibaca - Novrizal Airsyahputra
-    Menyajikan seluruh quotes yang ditambahkan oleh user berdasarkan judul buku - Fari Hafizh Ramadhan
+    * Mencari buku - buku yang tersedia pada perpustakaan (katalog) - Samuel Widjaja
+    * Melakukan peminjaman online terhadap buku yang diinginkan - Sabrina Atha Shania
+    * Mereview buku yang telah dibaca - Novrizal Airsyahputra
+    * Menyajikan seluruh quotes yang ditambahkan oleh user berdasarkan judul buku - Fari Hafizh Ramadhan
     
 2. Dasar aplikasi web
-    Dashboard
-    Homepage
-    Index
-	Di handle oleh seluruh anggota
+    * Dashboard
+    * Homepage
+    * Index
+	
+    Di handle oleh seluruh anggota
 
 **Admin**
-1. Pengelolaan Buku
-    Administrator memiliki kemampuan untuk memasukkan, memodifikasi, atau menghapus buku dari daftar katalog. Ini melibatkan tindakan seperti menambahkan data buku yang baru, melakukan perubahan pada informasi buku yang telah ada, serta menghapus buku yang sudah tidak relevan.
-2. Pengelolaan Peminjaman
-    Administrator dapat mengawasi dan mengatur proses peminjaman buku. Ini melibatkan tindakan seperti menyetujui permintaan peminjaman, mencatat pengembalian buku, dan mengelola status peminjaman.
+1. Pengelolaan Buku: Administrator memiliki kemampuan untuk memasukkan, memodifikasi, atau menghapus buku dari daftar katalog. Ini melibatkan tindakan seperti menambahkan data buku yang baru, melakukan perubahan pada informasi buku yang telah ada, serta menghapus buku yang sudah tidak relevan.
+2. Pengelolaan Peminjaman: Administrator dapat mengawasi dan mengatur proses peminjaman buku. Ini melibatkan tindakan seperti menyetujui permintaan peminjaman, mencatat pengembalian buku, dan mengelola status peminjaman.
 
 **User**
 
-1. Katalog Buku
-    Pengguna memiliki kemampuan untuk mencari buku dari daftar katalog dengan kata kunci, seperti judul. Pengguna juga dapat melihat detail buku seperti judul, sinopsis, rating ulasan, dan dapat juga menulis kutipan.
-2. Peminjaman Buku
-    Pengguna memiliki kemampuan untuk meminjam buku dari daftar katalog dengan cara mengajukan permintaan peminjaman. Pengguna juga diberikan fasilitas untuk memantau daftar buku yang saat ini mereka pinjam dan mengembalikannya ketika selesai membaca.
-3. Quotes dari Buku
-    Pengguna memiliki kemampuan untuk mencari dan menulis kutipan/quotes kesukaan dari buku dan bisa di-post pada halaman “Quotes”.
-4. Ulasan Buku
-    Pengguna diberikan kesempatan untuk menuliskan ulasan tentang buku yang telah mereka baca.
+1. Katalog Buku: Pengguna memiliki kemampuan untuk mencari buku dari daftar katalog dengan kata kunci, seperti judul. Pengguna juga dapat melihat detail buku seperti judul, sinopsis, rating ulasan, dan dapat juga menulis kutipan.
+2. Peminjaman Buku: Pengguna memiliki kemampuan untuk meminjam buku dari daftar katalog dengan cara mengajukan permintaan peminjaman. Pengguna juga diberikan fasilitas untuk memantau daftar buku yang saat ini mereka pinjam dan mengembalikannya ketika selesai membaca.
+3. Quotes dari Buku: Pengguna memiliki kemampuan untuk mencari dan menulis kutipan/quotes kesukaan dari buku dan bisa di-post pada halaman “Quotes”.
+4. Ulasan Buku: Pengguna diberikan kesempatan untuk menuliskan ulasan tentang buku yang telah mereka baca.
