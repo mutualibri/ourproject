@@ -25,7 +25,7 @@
     .box {
       position: relative;
       width: 420px;
-      height: 500px;
+      height: 450px;
       background: #152040;
       border-radius: 20px;
       overflow: hidden;
@@ -209,9 +209,8 @@
         <input class="btn btn-primary w-100 py-2" type="submit" value="Login">
     </div>
     <div class="wordle">
-        or
+        Don't have an account? <a href="{% url 'book:register' %}" style="text-decoration: none;">Register Now!</a>
     </div>
-    <button><a href="{% url 'book:register' %}" style="text-decoration: none; color:white;">Register Now!</a></button>
     <div>
     </div>
   </form>
