@@ -124,10 +124,6 @@ body {
     max-width: 28.125em;
 }
 
-{% comment %} .open-book article p {
-    text-indent: 2em;
-} {% endcomment %}
-
 .open-book .chapter-title + p:first-of-type {
     text-indent: 0;
 }
@@ -420,7 +416,7 @@ body {
                 <article>
                     <h2 class="chapter-title">${book.fields.title}</h2>
                     <div>
-                        <img src="https://www.booktopia.com.au/covers/big/9781612626796/0000/attack-on-titan-vol-13.jpg">
+                        <img src=${book.fields.image}>
                     </div>
                     <br>
                     <p>

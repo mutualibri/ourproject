@@ -180,7 +180,6 @@
         -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
         -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
         transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
-        background-image:url(https://www.booktopia.com.au/covers/big/9781612626796/0000/attack-on-titan-vol-13.jpg);
         background-size:cover;
         background-repeat:no-repeat;
       }
@@ -437,7 +436,7 @@
                                 <a style="color:black;" href="get-one-book/${book.pk}">                     
                                  <div class="center">
                                     <div class="property-card">
-                                        <div class="property-image">
+                                        <div class="property-image" style="background-image:url(${book.fields.image});">
                                           <div class="property-image-title">
                                             <!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
                                           </div>
