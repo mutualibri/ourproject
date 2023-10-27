@@ -1,6 +1,5 @@
 from django.urls import path
 from book.views import get_books_by_json, get_books_by_xml, register, login_user, logout_user, show_main
-from . import views
 
 
 app_name = 'book'
