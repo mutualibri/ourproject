@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block meta %}
+<style>
+    /* Set the background color for the entire HTML */
+    body {
+        background-color: #152040; /* Update background color to #152040 */
+    }
+
+    /* Center the search results and give them some spacing */
+    .container {
+        text-align: center;
+        padding: 20px;
+    }
+
+    /* Style the search results title */
+    .text-center h1 {
+        font-size: 24px;
+        margin: 20px 0;
+    }
+
+    /* Style the card */
+    .card {
+        border: none;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        background-color: #27374D; /* Background color of the card (#27374D) */
+        color: black; /* Text color inside the card (white) */
+        height: 100%;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Style the card title */
+    .card-title-box {
+        background-color: #526D82; /* Background color for the title box (#526D82) */
+        padding: 10px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .card-title {
+        font-size: 18px;
+        margin: 0;
+        color: #fff; /* Text color for the title (white) */
+    }
+
+    /* Style the card description */
+    .card-text {
+        font-size: 16px;
+
+    }
+    .row {
+        display: flex;
+        justify-content: center;
+    }
+
+    .col-lg-3 {
+            flex: 0 0 25%}
+</style>
+{% endblock meta %}
+{% block content %}
+{% include 'header.html' %}
+
+<div id="product_table">
+    <!-- {% if searched %}
+    <h1 class="text-light text-center">Your Search Results for "{{ searched }}"</h1>
+    <div class="row">
+        {% for book in books %}
+        <div class="col-lg-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="card-title-box">
+                        <h5 class="card-title">{{ book.title }}</h5>
+                    </div>
+                    <img class="card-img-top" src="{{ book.image.url }}" alt="{{ book.title }}">
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:2 %}
+        </div><div class="row">
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% else %}
+    <h1 class="text-light text-center">No Input!</h1>
+    {% endif %}
+</div>-->
+<script>
+    // Function to filter books
+    function filterBooks() {
+        var input, filter, productTable, books, book, title, txtValue;
+        input = document.getElementById('search');
+        filter = input.value.toLowerCase();
+        productTable = document.getElementById('product_table');
+        books = productTable.getElementsByClassName('col-lg-3');
+
+        for (var i = 0; i < books.length; i++) {
+            book = books[i];
+            title = book.getElementsByClassName('card-title')[0];
+            txtValue = title.textContent || title.innerText;
+
+            if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                book.style.display = '';
+            } else {
+                book.style.display = 'none';
+            }
+        }
+    }
+
+    // Add an event listener to trigger the filtering
+    document.getElementById('search').addEventListener('input', filterBooks);
+
+    // Fetch and display products initially
+    async function getAndDisplayProducts() {
+        const productTable = document.getElementById('product_table');
+        try {
+            const response = await fetch("{% url 'book:get_product_json' %}");
+            const products = await response.json();
+
+            let htmlString = '';
+
+            for (let i = 0; i < products.length; i++) {
+                const item = products[i];
+
+                if (i % 4 === 0) {
+                    if (i > 0) {
+                        htmlString += '</div>';
+                    }
+                    htmlString += '<div class="row">';
+                }
+
+                htmlString += `
+                    <div class="col-lg-3 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-title-box">
+                                    <h5 class="card-title">${item.fields.title}</h5>
+                                </div>
+                                <img class="card-img-top" src="${item.fields.image}" alt="${item.fields.title}">
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                if (i === products.length - 1) {
+                    htmlString += '</div>';
+                }
+            }
+
+            productTable.innerHTML = htmlString;
+        } catch (error) {
+            console.error('Error fetching and displaying products:', error);
+        }
+    }
+
+    getAndDisplayProducts();
+</script>
+{% endblock %}
