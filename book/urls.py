@@ -1,6 +1,5 @@
-from django.urls import path
+from django.urls import path, include
 from book.views import get_books_by_json, get_books_by_xml, register, login_user, logout_user, show_main, search, get_product_json
-
 
 app_name = 'book'
 
@@ -13,5 +12,7 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('search/', search, name='searchbar'),
     path('get-product/', get_product_json, name='get_product_json'),
+    path('review/', include("review.urls")),
+
 
 ]
