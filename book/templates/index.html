@@ -1,0 +1,13 @@
+{% include 'header.html' %}
+    
+{% block meta %}
+
+{% endblock meta %}
+<h1>testing</h1>
+<p>{{name}}</p>
+
+<a href="{% url 'book:logout' %}">
+    <button>
+        Logout
+    </button>
+</a>

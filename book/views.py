@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse 
+from django.http import HttpResponse, JsonResponse 
 from django.core import serializers
 from book. models import Book
 from django.shortcuts import redirect
@@ -55,3 +55,15 @@ def get_books_by_json (request):
 def get_books_by_xml(request):
     data = Book.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+def search(request):
+    if request.method == "POST":
+        searched = request.POST.get('searched')
+        books = Book.objects.filter(title__contains=searched)
+        return render(request, 'search.html', {'searched': searched, 'books': books})
+    else:
+        return render(request, 'search.html', {})
+
+def get_product_json(request):
+    data = Book.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
