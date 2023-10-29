@@ -80,11 +80,11 @@
         <div class="row row-cols-3 g-5 align-items-center">
             {% for quote in quotes %}
                 <div class="col-content custom-distance" style="font-family: 'Agbalumo', sans-serif;">
-                    <h4 style="font-family: 'DM Sans', sans-serif;"><b>{{quote.book_name}}</b></h4>
+                    <h4 style="font-family: 'DM Sans', sans-serif;"><b>@Nama</b></h4>
                     <!-- <a href="{% url 'quote:delete_quote' quote.pk %}"><button>Delete</button></a> -->
                     <hr class="divider">
                     <h5 style="font-family: 'DM Sans', sans-serif;"><i>"{{quote.quotes}}"</i></h5>
-                    <p style="text-align: right;"><i>@Nama</b></i></p>
+                    <p style="text-align: right; font-family: 'DM Sans', sans-serif;">-<i><b>{{quote.book_name}}</b></i></p>
                 </div>
             {% endfor %}
         </div>
