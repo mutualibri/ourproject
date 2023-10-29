@@ -8,9 +8,13 @@
 
 ---
 
-### Nama Aplikasi
-
+### Nama Aplikasi:
 mutualibri
+
+---
+
+### Sumber Dataset Katalog Buku:
+https://www.kaggle.com/datasets/bilalyussef/google-books-dataset
 
 ---
 
