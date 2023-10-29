@@ -14,6 +14,10 @@ mutualibri
 
 ---
 
+### Link Tautan:
+
+---
+
 ### Latar Belakang
 
 Perilaku siswa yang semakin beralih ke dunia digital dan bergantung pada internet telah mengalami transformasi yang signifikan dalam beberapa tahun terakhir. Saat ini, banyak siswa mengandalkan internet untuk mengejar pengetahuan, melakukan penelitian, dan memenuhi kebutuhan akademik mereka. Siswa seringkali bergantung pada internet untuk akses sejumlah besar sumber informasi yang tersedia dalam sekejap, sehingga mereka dapat mengeksplorasi berbagai topik dengan cepat dan efisien. Mereka menggunakan mesin pencari, platform pembelajaran online, dan sumber daya digital lainnya untuk membantu dalam tugas-tugas akademik mereka. Internet juga memungkinkan siswa untuk terhubung dengan sesama mahasiswa, guru, atau ahli di bidang tertentu melalui jejaring sosial, forum, dan komunitas online.
@@ -65,10 +69,6 @@ Aplikasi web ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
     * Index
 	
     Di-handle oleh seluruh anggota.
-
-**Admin**
-1. Pengelolaan Buku: Administrator memiliki kemampuan untuk memasukkan, memodifikasi, atau menghapus buku dari daftar katalog. Ini melibatkan tindakan seperti menambahkan data buku yang baru, melakukan perubahan pada informasi buku yang telah ada, serta menghapus buku yang sudah tidak relevan.
-2. Pengelolaan Peminjaman: Administrator dapat mengawasi dan mengatur proses peminjaman buku. Ini melibatkan tindakan seperti menyetujui permintaan peminjaman, mencatat pengembalian buku, dan mengelola status peminjaman.
 
 **User**
 
