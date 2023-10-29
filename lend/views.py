@@ -1,9 +1,12 @@
 from django.shortcuts import render
-from .models import Lend
+from lend.models import Lend
 from book.models import Book
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core import serializers
 from datetime import date, timedelta
+from .models import User
+from lend.forms import ProductForm
+from django.urls import reverse
 
 # Create your views here.
 def show_catalog(request):
@@ -21,9 +24,16 @@ def get_catalog_json(request):
 
 def get_book(request, id):
     books = Book.objects.filter(pk=id)
+    user= request.user
+    # lend = Lend.objects.get(user = user)
+    # book = lend.book
+    # exist = book == books
     context = {
         'books':books,
         'id':id,
+        'user':user,
+        # 'lend':lend,
+        # 'book':book,
     }
     return render(request, "book_view.html", context)
 
@@ -33,6 +43,7 @@ def get_book_json(request, id):
 
 def preview_lend(request, id):
     book = Book.objects.filter(pk=id)
+
     context = {
         'book':book,
         'id':id,
@@ -40,16 +51,37 @@ def preview_lend(request, id):
     return render(request, "preview_lend.html", context)
 
 def create_lend(request, id):
-    current_date = date.today()
-    future_date = current_date + timedelta(days=7)
-
-
+    form = ProductForm(request.POST or None)
     user = request.user
     book = Book.objects.get(pk=id)
-    new_product = Lend(user=user, number=id, start_date=current_date, end_date=future_date, book=book)
-    new_product.save()
+
+    if form.is_valid() and request.method == "POST":
+        product = form.save(commit=False)
+        product.user = request.user
+        product.save()
+        return HttpResponseRedirect(reverse('lend:show_catalog'))
+
     context = {
+        'form': form,
         'book':book,
+        'user':user,
         'id':id,
     }
-    return render(request, "success_create.html", context)
+    # book = Book.objects.get(pk=id)}
+    return render(request, "preview_lend.html", context)
+    # current_date = date.today()
+    # future_date = current_date + timedelta(days=7)
+
+
+    # user = request.user
+    # book = Book.objects.get(pk=id)
+    # new_product = Lend(user=user, number=id, start_date=current_date, end_date=future_date, book=book)
+    # new_product.save()
+    # context = {
+    #     'book':book,
+    #     'id':id,
+    # }
+    # return render(request, "success_create.html", context)
+def show_json(request):
+    data = Lend.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")

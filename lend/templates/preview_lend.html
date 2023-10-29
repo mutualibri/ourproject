@@ -1,105 +1,117 @@
 {% block meta %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 <style>
+    * {
+        line-height:21px;
+      }
     @use postcss-preset-env {
         stage: 0;
-      }
-      
-      :root {
+    }
+    html {
+        background-color:#152040;
+    }
+    :root {
         --color-background: #152040;
         --color-primary: #fc8080;
-        --font-family-base: Poppin, sans-serif;
+        --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         --font-size-h1: 1.25rem;
         --font-size-h2: 1rem;
-      }
-      
-      
-      * {
+    }
+       
+    * {
         box-sizing: inherit;
-      }
+    }
       
-      html {
+    html {
         box-sizing: border-box;
-      }
+    }
       
-      body {
-        background-color: var(--color-background);
+    body {
+
         display: grid;
         font-family: var(--font-family-base);
         line-height: 1.5;
         margin: 0;
         min-block-size: 100vh;
         place-items: center;
-      }
+    }
       
-      address {
+    address {
         font-style: normal;
-      }
-      
-      button {
-        border: 0;
-        color: inherit;
-        cursor: pointer;
-        font: inherit;
-      }
-      
-      fieldset {
+    }
+    
+    fieldset {
         border: 0;
         margin: 0;
         padding: 0;
-      }
+    }
       
-      h1 {
+    h1 {
         font-size: 30px;
         line-height: 1.2;
         margin-block: 0 0.5em;
-      }
-      
-      h2 {
+    }
+    
+    h2 {
         font-size: var(--font-size-h2);
         line-height: 1.2;
         margin-block: 0 0.5em;
-      }
+    }
       
-      legend {
+    legend {
         font-weight: 600;
         margin-block-end: 0.5em;
         padding: 0;
-      }
-      
-      input {
+    }
+    
+    input {
         border: 0;
         color: inherit;
         font: inherit;
-      }
+    }
       
-      input[type="radio"] {
+    input[type="radio"] {
         accent-color: var(--color-primary);
-      }
-      
-      table {
+    }
+    
+    table {
         border-collapse: collapse;
         inline-size: 100%;
-      }
-      
-      tbody {
+    }
+    
+    tbody {
         color: #b4b4b4;
-      }
-      
-      td {
+    }
+    
+    td {
         padding-block: 0.125em;
-      }
+    }
       
-      tfoot {
+    tfoot {
         border-top: 1px solid #b4b4b4;
         font-weight: 600;
-      }
-      
-      .align {
+    }
+    
+    .align {
         display: grid;
         place-items: center;
-      }
-      
-      .button {
+    }
+    
+    body {
+        margin: 0;
+        font-family: var(--bs-font-sans-serif);
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        background-color: #152040;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .button {
         align-items: center;
         background-color: #FFC200;
         border-radius: 999em;
@@ -110,68 +122,68 @@
         padding-block: 0.75em;
         padding-inline: 1em;
         transition: 0.3s;
-      }
+    }
       
-      .button:hover {
+    .button:hover {
         background-color: #e96363;
-      }
-      
-      .button--full {
+    }
+    
+    .button--full {
         inline-size: 100%;
-      }
+    }
       
-      .card {
+    .card {
         border-radius: 1em;
         background-color:#FFC200;
         color: black;
         padding: 1em;
         margin-bottom:30px;
         margin-top:10px;
-      }
+    }
       
-      .form {
+    .form {
         display: grid;
         gap: 2em;
-      }
-      
-      .form__radios {
+    }
+    
+    .form__radios {
         display: grid;
         gap: 1em;
         margin-bottom:10px;
-      }
-      
-      .form__radio {
+    }
+    
+    .form__radio {
         align-items: center;
         background-color: #fefdfe;
         border-radius: 1em;
         box-shadow: 0 0 1em rgba(0, 0, 0, 0.0625);
         display: flex;
         padding: 1em;
-      }
+    }
       
-      .form__radio label {
+    .form__radio label {
         align-items: center;
         display: flex;
         flex: 1;
         gap: 1em;
-      }
-      
-      .header {
+    }
+    
+    .header {
         display: flex;
         justify-content: center;
         padding-block: 0.5em;
         padding-inline: 1em;
-      }
-      
-      .icon {
+    }
+    
+    .icon {
         block-size: 1em;
         display: inline-block;
         fill: currentColor;
         inline-size: 1em;
         vertical-align: middle;
-      }
+    }
       
-      .iphone {
+    .iphone {
         background-color: #fbf6f7;
         background-image: linear-gradient(to bottom, #fbf6f7, #fff);
         border-radius: 2em;
@@ -179,71 +191,82 @@
         inline-size: 375px;
         overflow: auto;
         padding: 2em;
-      }
+    }
 </style>
 {% endblock meta %}
 
+{% include "header.html" %}
 {% block content %}
-<div class="iphone" id="product_table">
-  </div>
+<div class="iphone" id="product_table" style="margin-top:100px;">
+</div>
 
-  <script>
+<script>
 
-    // Get the current date
-    const currentDate = new Date();
+  // Get the current date
+  const currentDate = new Date();
 
-    // Calculate the end date (7 days later)
-    const endDate = new Date(currentDate);
-    endDate.setDate(currentDate.getDate() + 7);
+  // Calculate the end date (7 days later)
+  const endDate = new Date(currentDate);
+  endDate.setDate(currentDate.getDate() + 7);
 
-    // Format the dates as yyyy-mm-dd for input fields
-    const startDateValue = currentDate.toISOString().slice(0, 10);
-    const endDateValue = endDate.toISOString().slice(0, 10);
+  // Format the dates as yyyy-mm-dd for input fields
+  const startDateValue = currentDate.toISOString().slice(0, 10);
+  const endDateValue = endDate.toISOString().slice(0, 10);
 
-    async function getProducts() {
-        return fetch("{% url 'lend:get_catalog_json' %}").then((res) => res.json())
-    }
+  async function getProducts() {
+      return fetch("{% url 'lend:get_catalog_json' %}").then((res) => res.json())
+  }
 
-    async function refreshProducts() {
-        document.getElementById("product_table").innerHTML = ""
-        var pk = "{{ id }}"
-        const products = await getProducts()
-        let htmlString = ``
-        products.forEach((book) => {
-            if (pk == book.pk) {
-                htmlString += ` 
-                <header class="header">
-                    <h1>Lend Book</h1>
-                  </header>
-                
-                    {% csrf_token %}
-                    <div>
-                      <h2>Title of the Book</h2>
-                
-                      <div class="card">
-                        <p>${book.fields.title}</p>
+  async function refreshProducts() {
+      document.getElementById("product_table").innerHTML = ""
+      var pk = "{{ id }}"
+      const products = await getProducts()
+      let htmlString = ``
+      products.forEach((book) => {
+          if (pk == book.pk) {
+              htmlString += ` 
+                  <h1 class="header"><b>Lend Book</b></h1>
+                  <div>
+                    <legend>Title of the Book</legend>
+                    <div class="card">
+                      <p>${book.fields.title}</p>
+                    </div>
+                  </div>
+          
+                  <fieldset>
+                    <legend>Detail Lend</legend>
+                    <div class="form__radios">
+                      <div class="form__radio">
+                        <label for="start_date" readonly>Start Date: ${startDateValue}</label>
                       </div>
+                      <div class="form__radio">
+                        <label for="end_date" readonly>End Date: ${endDateValue}</label>
+                      </div>
+                    </div>
+                  </fieldset>
+                  <form method="post">
+                    {% csrf_token %}
+            
+                    <div>
+                        {{ form.user.label_tag }}
+                        {{ form.user }}
                     </div>
             
-                    <fieldset>
-                      <legend>Detail Lend</legend>
-                
-                      <div class="form__radios">
-                        <div class="form__radio">
-                          <label for="start_date" readonly>Start Date: ${startDateValue}</label>
-                        </div>
-                        <div class="form__radio">
-                          <label for="end_date" readonly>End Date: ${endDateValue}</label>
-                        </div>
-                      </div>
-                
-                    </fieldset>
                     <div>
-                        <a href="create-lend" style="text-decoration: none;"><button class="button button--full"><b>Lend Now!</b></button></a>
+                        {{ form.book.label_tag }}
+                        {{ form.book }}
                     </div>
-                `;
-            };
-        })
+            
+                    <!-- These fields are hidden -->
+                    {{ form.start_date }}
+                    {{ form.end_date }}
+                    {{ form.number }}
+                    <div>
+                        <input type="submit" value="Create Lend">
+                    </div>
+                </form>`;
+          };
+      })
 
         document.getElementById("product_table").innerHTML = htmlString
     }
@@ -266,4 +289,5 @@
         modal.style.display = "none";
     }
 </script>
+{% include "footer.html" %}
 {% endblock content %}
