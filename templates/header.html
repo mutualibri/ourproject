@@ -1,4 +1,7 @@
+{% extends "base.html" %} {% load static %} 
+
 {% block meta %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
     <style>
         .p-2 {
@@ -19,7 +22,6 @@
         }
 
         .form-control-dark {
-            background-color: #FFFF !important; /* Latar belakang form input (#27374D) */
             border-color: #526D82 !important; /* Warna border form input (#526D82) */
             color: black !important; /* Warna teks dalam form input (putih) */
         }
@@ -112,13 +114,12 @@
         <a href="/" class="d-flex align-items-foreground mb-2 mb-lg-0 text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
         </a>
-
+    
         <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0" id="mainMenu">
-            <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text1" class="nav-link px-2 text">Home</a></li>
-            <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text2" class="nav-link px-2 text">Catalog</a></li>
-            <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text3" class="nav-link px-2 text">Review Book</a></li>
-            <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text4" class="nav-link px-2 text">Quotes</a></li>
-            <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text5" class="nav-link px-2 text">About Us</a></li>
+            <li class="nav-item" style="margin-left:20px;"><img src="https://imgur.com/v4ZAw0P" id="nav-text2" class="nav-link px-2 text"></li>
+            <li class="nav-item" style="margin-left:20px;"><a href="{% url "lend:show_catalog" %}" id="nav-text2" class="nav-link px-2 text">Catalog</a></li>
+            <li class="nav-item" style="margin-left:20px;"><a href="{% url "review:show_main" %}" id="nav-text3" class="nav-link px-2 text">Review Book</a></li>
+            <li class="nav-item" style="margin-left:20px;"><a href="{% url "quote:quotes_page"%}" id="nav-text4" class="nav-link px-2 text">Quotes</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 ml-auto" action="{% url 'book:searchbar' %}" method="POST">
@@ -128,6 +129,8 @@
               <button type="submit" class="btn btn-outline-light">Search</button> <!-- Menggunakan kelas Bootstrap untuk tombol -->
             </div>
           </form>
+        
+          <a href="{% url "book:login" %}"><button type="" class="btn btn-outline-light">Logout</button></a>
       
        
       </div>
@@ -135,9 +138,9 @@
   </header>
 {% endblock content %}
 <script>
-    var currentURL1 = window.location.pathname;
+    {% comment %} var currentURL1 = window.location.pathname;
     var targetURL1 = "";
-    var targetURL2 = "";
+    var targetURL2 = "review/";
     var targetURL3 = "";
     var targetURL4 = "";
     var targetURL5 = "";
@@ -160,7 +163,7 @@
     }
     if (currentURL === targetURL5) {
         navText3.classList.add("highlighted-text");
-    }
+    } {% endcomment %}
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>

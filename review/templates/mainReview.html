@@ -1,7 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %} {% load static %} 
 
-{% include "navbar.html" %}
+{% block meta %}
+<title>Review</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock meta %}
+
+{% include "header.html" %}
 
 <style>
 body {
@@ -215,7 +219,7 @@ a{
 
 <body> 
     <section id="reviews">
-
+        <p id="add-review-message" style="margin-top:100px;color:white;"><b>Hello, {{ name }}! Now, it's time for you to add your own book review!</b></p>
 
         <button id="add-review-button">Add a Book Review</button>
 
@@ -247,7 +251,7 @@ a{
                         
                         <div class="profile-name user-info">
                             <strong>MUTUALIBRI USER</strong>
-                            <span>@{{review.username}}</span>
+                            <span>@{{name}}</span>
                         </div>
                         
                     </div>
@@ -261,8 +265,6 @@ a{
 
                 <div class ="review-title-author-genre-rating">
                     <p><strong>Title: </strong>{{ review.title }} </p>
-                    <p><strong>Author: </strong>{{ review.author }}</p>
-                    <p><strong>Genre: </strong>{{ review.genres }} </p>
                     <p><strong>Rating: </strong>{{ review.rating }}/100</p>
                 </div>
 
@@ -272,7 +274,7 @@ a{
 
                     <!-- Tambahkan kode ini ke dalam div review-box -->
                     <div class="read-book-link">
-                        <p>Interested in reading this book? <a href="/url-buku-di-sini">Read it here.</a></p>
+                        <p>Interested in reading books? <a href="{% url "lend:show_catalog" %}">Read them here.</a></p>
                     </div>
 
                      <div class="review-actions">   

@@ -1,5 +1,9 @@
-{% extends 'base.html' %} 
+{% extends "base.html" %} {% load static %} 
 
+{% block meta %}
+<title>Add Quote</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock meta %}
 {% block content %}
     {% include "header.html" %}
     <!-- 536d82, 152040, ffc201, f1e7c6, ffffff -->

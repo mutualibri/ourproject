@@ -1,4 +1,9 @@
-{% extends 'base.html' %}
+{% extends "base.html" %} {% load static %} 
+
+{% block meta %}
+<title>Quotes</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock meta %}
 
 {% block content %}
 {% include "header.html" %}
@@ -65,7 +70,7 @@
                 </a>
             </div>
             <div class="col-title d-flex justify-content-center align-items-center">
-                <h1 style="font-family: 'Agbalumo', sans-serif;">Your Daily Dose of Quotes</h1>
+                <h1 style="font-family: 'Agbalumo', sans-serif; font-size:32px;">Your Daily Dose of Quotes</h1>
             </div>
             <div class="col-title d-flex justify-content-end align-items-center">
                 <form method="get">
