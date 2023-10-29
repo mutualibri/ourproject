@@ -1,102 +1,166 @@
+{% block meta %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <style>
+        .p-2 {
+            padding: 1rem !important;
+            position:fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+        .text-bg-dark {
+            color: #fff !important; /* Teks berwarna putih */
+        }
+
+        .navbar-bg-dark {
+            background-color: #152040 !important; /* Latar belakang navbar (#27374D) */
+        }
+
+        .form-control-dark {
+            background-color: #FFFF !important; /* Latar belakang form input (#27374D) */
+            border-color: #526D82 !important; /* Warna border form input (#526D82) */
+            color: black !important; /* Warna teks dalam form input (putih) */
+        }
+
+        .btn-outline-light {
+            color: #fff !important; /* Warna teks tombol (putih) */
+            border-color: #fff !important; /* Warna border tombol (putih) */
+        }
+
+        .btn-warning {
+            background-color: #526D82 !important; /* Latar belakang tombol Sign-up (#526D82) */
+            color: #fff !important; /* Warna teks tombol (putih) */
+            border-color: #fff !important; /* Warna border tombol (putih) */
+        }
+
+        /* Aturan CSS untuk mengubah warna teks tombol saat dihover */
+        .btn-outline-light:hover {
+            color: #000 !important; /* Warna teks menjadi hitam saat dihover */
+        }
+
+        .btn-warning:hover {
+            color: #000 !important; /* Warna teks tombol Sign-up menjadi hitam saat dihover */
+        }
+
+        #mainMenu li > a:hover::before,
+        #mainMenu li > a.active::before {
+            -webkit-transform: scale(1, 1);
+            -ms-transform: scale(1, 1);
+            transform: scale(1, 1);
+            -webkit-transform-origin: left center;
+            -ms-transform-origin: left center;
+            transform-origin: left center;
+        }
+
+        [data-target="#mainMenu"] {
+            position: relative;
+            z-index: 999;
+          }
+          
+          #mainMenu li > a {
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #fff;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+          }
+          
+          #mainMenu li > a {
+            color: #fff;
+            text-decoration: none;
+          }
+          
+          #mainMenu li:not(:last-of-type) {
+            margin-right: 30px;
+          }
+          
+          #mainMenu li > a::before {
+            position: absolute;
+            content: "";
+            width: calc(100% - 1px);
+            height: 1px;
+            background: #fff;
+            bottom: -6px;
+            left: 0;
+            -webkit-transform: scale(0, 1);
+            -ms-transform: scale(0, 1);
+            transform: scale(0, 1);
+            -webkit-transform-origin: right center;
+            -ms-transform-origin: right center;
+            transform-origin: right center;
+            z-index: -1;
+          
+            -webkit-transition: transform 0.5s ease;
+            transition: transform 0.5s ease;
+          }
+
+          .highlighted-text {
+            color: #FFC200 !important;
+        }
+        /* Set the background color for the entire HTML */
+    </style>
+{% endblock meta %}
+<body>
 {% block content %}
-HTML CSS JS 
+  <header class="p-2 navbar-bg-dark"> <!-- Menggunakan warna latar belakang navbar dari Bootstrap -->
+    <div>
+      <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-start">
+        <a href="/" class="d-flex align-items-foreground mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
 
-Result
-Skip Results Iframe
+        <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0" id="mainMenu">
+            <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text1" class="nav-link px-2 text">Home</a></li>
+            <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text2" class="nav-link px-2 text">Catalog</a></li>
+            <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text3" class="nav-link px-2 text">Review Book</a></li>
+            <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text4" class="nav-link px-2 text">Quotes</a></li>
+            <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text5" class="nav-link px-2 text">About Us</a></li>
+        </ul>
 
-EDIT ON
-
-<body class="hero-anime"> 
-
-<div class="navigation-wrap bg-light start-header start-style">
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <nav class="navbar navbar-expand-md navbar-light">
-      
-        <a class="navbar-brand" href="https://front.codes/" target="_blank"><img src="https://assets.codepen.io/1462889/fcy.png" alt=""></a>  
-        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto py-4 py-md-0">
-            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <a class="dropdown-item" href="#">Another action</a>
-              </div>
-            </li>
-            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-              <a class="nav-link" href="#">Portfolio</a>
-            </li>
-            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-              <a class="nav-link" href="#">Agency</a>
-            </li>
-            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <a class="dropdown-item" href="#">Another action</a>
-              </div>
-            </li>
-            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-              <a class="nav-link" href="#">Journal</a>
-            </li>
-            <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
-        </div>
-        
-      </nav>    
-    </div>
-  </div>
-</div>
-</div>
-<div class="section full-height">
-<div class="absolute-center">
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-    <h1><span>B</span><span>o</span><span>o</span><span>t</span><span>s</span><span>t</span><span>r</span><span>a</span><span>p</span> <span>4</span><br>
-    <span>m</span><span>e</span><span>n</span><span>u</span></h1>
-    <p>scroll for nav animation</p> 
-        </div>  
-      </div>    
-    </div>    
-  </div>
-  <div class="section mt-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div id="switch">
-            <div id="circle"></div>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 ml-auto">
+          {% csrf_token %}
+          <div class="input-group">
+              <input type="search" class="form-control form-control-dark px-3" placeholder="Search..." aria-label="Search" name="searched">
+              <button type="submit" class="btn btn-outline-light">Search</button>
           </div>
-        </div>  
-      </div>    
-    </div>      
-  </div>
-</div>
-</div>
-<div class="my-5 py-5">
-</div>
-
-<!-- Link to page
-================================================== -->
-
-<a href="https://front.codes/" class="logo" target="_blank">
-<img src="https://assets.codepen.io/1462889/fcy.png" alt="">
-</a>
-
-</body>
-
-
+      </form>
+      
+       
+      </div>
+    </div>
+  </header>
 {% endblock content %}
+<script>
+    var currentURL1 = window.location.pathname;
+    var targetURL1 = "";
+    var targetURL2 = "";
+    var targetURL3 = "";
+    var targetURL4 = "";
+    var targetURL5 = "";
+    var navText1 = document.getElementById("nav-text1");
+    var navText2 = document.getElementById("nav-text2");
+    var navText3 = document.getElementById("nav-text3");
+    var navText4 = document.getElementById("nav-text4");
+    var navText5 = document.getElementById("nav-text5");
+    if (currentURL === targetURL1) {
+        navText1.classList.add("highlighted-text");
+    }
+    if (currentURL === targetURL2) {
+        navText2.classList.add("highlighted-text");
+    }
+    if (currentURL === targetURL3) {
+        navText3.classList.add("highlighted-text");
+    }
+    if (currentURL === targetURL4) {
+        navText3.classList.add("highlighted-text");
+    }
+    if (currentURL === targetURL5) {
+        navText3.classList.add("highlighted-text");
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>

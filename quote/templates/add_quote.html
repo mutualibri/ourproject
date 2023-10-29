@@ -1,0 +1,61 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+    {% include "navbar.html" %}
+    <!-- 536d82, 152040, ffc201, f1e7c6, ffffff -->
+    <!-- 27374d, 526d82, 9db2bf, dde6ed -->
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=DM+Sans:opsz,wght@9..40,500&display=swap');        body{
+            background-color: #152040;
+            display: flex; /* Menambahkan display flex untuk mengatur tata letak isi kontainer */
+            flex-direction: column; /* Mengatur konten vertikal (sebuah kolom) */
+            justify-content: center; /* Mengatur konten secara vertikal tengah */
+            align-items: center;
+            height: 120vh;
+            overflow: hidden;
+        }
+
+        .container-fluid{
+            flex-direction: column;
+            display: flex; /* Menambahkan display flex untuk mengatur tata letak isi kontainer */
+            flex-direction: column; /* Mengatur konten vertikal (sebuah kolom) */
+            justify-content: center; /* Mengatur konten secara vertikal tengah */
+            align-items: center;
+            background-color: #f1e7c6;
+            width: 600px;
+            height: 600px;
+            border: 5px solid black;
+            border-radius: 30px;
+            font-family: 'Agbalumo', sans-serif;
+        }
+
+        .button:hover{
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+    </style>
+
+    <div class="container-fluid d-flex justify-content-center align-items-center">
+        <h1 style="font-family: 'Agbalumo', sans-serif;">Add Your Quote</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th><label for="{{ form.book_name.id_for_label }}">Book Title:</label></th>
+                    <td style="font-family: 'DM Sans', sans-serif;">{{ form.book_name }}</td>
+                </tr>
+                <tr>
+                    <th><label for="{{ form.quote.id_for_label }}">Quote:</label></th>
+                    <td style="font-family: 'DM Sans', sans-serif;">{{ form.quotes }}</td>
+                </tr>
+            </table>
+            <div class="container d-flex justify-content-end">
+                <input class="button" type="submit" value="Add New Quote" 
+                style="background-color: #f1e7c6; border: 2px solid #f1e7c6; border-radius: 30px;">
+            </div>
+        </form>
+    </div>
+    
+    {% include "footer.html" %}
+
+{% endblock %}
