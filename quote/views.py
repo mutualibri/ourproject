@@ -28,7 +28,9 @@ def add_quote(request):
     form = QuoteForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
-        form.save()
+        quote = form.save(commit=False)
+        quote.user = request.user
+        quote.save()
         return HttpResponseRedirect(reverse('quote:quotes_page'))
 
     context = {'form': form}

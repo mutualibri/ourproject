@@ -16,3 +16,4 @@ class Book(models.Model):
     ISBN = models.IntegerField(null=True, blank=True)
     language = models.TextField(null=True, blank=True)
     published_date = models.TextField(null=True, blank=True)
+    image = models.TextField(null=True, blank=True)

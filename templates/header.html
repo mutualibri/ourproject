@@ -116,18 +116,18 @@
         <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0" id="mainMenu">
             <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text1" class="nav-link px-2 text">Home</a></li>
             <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text2" class="nav-link px-2 text">Catalog</a></li>
-            <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text3" class="nav-link px-2 text">Review Book</a></li>
-            <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text4" class="nav-link px-2 text">Quotes</a></li>
+            <li class="nav-item" style="margin-left:20px;"><a href="/review/" id="nav-text3" class="nav-link px-2 text">Review Book</a></li>
+            <li class="nav-item" style="margin-left:20px;"><a href="/quote/" id="nav-text4" class="nav-link px-2 text">Quotes</a></li>
             <li class="nav-item" style="margin-left:20px;"><a href="#" id="nav-text5" class="nav-link px-2 text">About Us</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 ml-auto">
-          {% csrf_token %}
-          <div class="input-group">
-              <input type="search" class="form-control form-control-dark px-3" placeholder="Search..." aria-label="Search" name="searched">
-              <button type="submit" class="btn btn-outline-light">Search</button>
-          </div>
-      </form>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 ml-auto" action="{% url 'book:searchbar' %}" method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+              <input type="text" id="search" class="form-control form-control-dark" placeholder="Search books" aria-label="Search" name="searched">
+              <button type="submit" class="btn btn-outline-light">Search</button> <!-- Menggunakan kelas Bootstrap untuk tombol -->
+            </div>
+          </form>
       
        
       </div>

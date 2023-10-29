@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% include "navbar.html" %}
+{% include "header.html" %}
 <!-- 536d82, 152040, ffc201, f1e7c6, ffffff -->
 <!-- 27374d, 526d82, 9db2bf, dde6ed -->
     <style>
@@ -80,7 +80,7 @@
         <div class="row row-cols-3 g-5 align-items-center">
             {% for quote in quotes %}
                 <div class="col-content custom-distance" style="font-family: 'Agbalumo', sans-serif;">
-                    <h4 style="font-family: 'DM Sans', sans-serif;"><b>@Nama</b></h4>
+                    <h4 style="font-family: 'DM Sans', sans-serif;"><b>@{{quote.user}}</b></h4>
                     <!-- <a href="{% url 'quote:delete_quote' quote.pk %}"><button>Delete</button></a> -->
                     <hr class="divider">
                     <h5 style="font-family: 'DM Sans', sans-serif;"><i>"{{quote.quotes}}"</i></h5>
