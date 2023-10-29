@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include "header.html" %}
+<!-- 536d82, 152040, ffc201, f1e7c6, ffffff -->
+<!-- 27374d, 526d82, 9db2bf, dde6ed -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Agbalumo&family=DM+Sans:opsz,wght@9..40,500&display=swap');
+        body{
+            background-color: #152040;
+        }
+
+        .container-fluid{
+            background-color: #f1e7c6;
+            margin: 100px 50px 30px 50px;
+            padding: 20px;
+            width: auto;
+            height: auto;
+            border-radius: 30px;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Agbalumo', sans-serif;        
+        }
+        
+        .row {
+            margin: 10px;
+        }
+
+        .col-content {
+            border: 2px solid #152040;
+            border-radius: 30px;
+            width: 500px;
+            height: 350px;
+        }
+
+        .custom-distance{
+            margin: 10px 20px 10px 19px;
+            padding: 20px;
+        }
+
+        .divider {
+            border: 2px solid black; 
+            margin: 10px ;
+        }
+
+        .button-set{
+            background-color: #f1e7c6;
+            border:0px #f1e7c6;
+            font-size: 18px; /* Ubah ukuran font */
+            padding: 10px 20px; /* Ubah padding tombol */
+            border-radius: 10px; /* Ubah radius sudut tombol */
+        }
+
+        .button-set:hover{
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        }
+
+    </style>
+
+    <div class="container-fluid">
+        <div class="row row-cols-3 g-5 align-items-center">
+            <div class="col-title d-flex justify-content-left align-items-center">
+                <a href="{% url 'quote:add_quote' %}">
+                    <button class="button-set">add your quote here!</button>
+                </a>
+            </div>
+            <div class="col-title d-flex justify-content-center align-items-center">
+                <h1 style="font-family: 'Agbalumo', sans-serif;">Your Daily Dose of Quotes</h1>
+            </div>
+            <div class="col-title d-flex justify-content-end align-items-center">
+                <form method="get">
+                    <label for="sort_order" style="color: #000000; font-size: 18px;">Ordered based on:</label>
+                    <select name="sort_order" id="sort_order" class="dropdown-option" onchange="this.form.submit()">
+                        <option value="recent" {% if sort_order == 'recent' %}selected{% endif %}>Recent Review</option>
+                        <option value="oldest" {% if sort_order == 'oldest' %}selected{% endif %}>Oldest Review</option>
+                    </select>
+                </form>
+            </div>
+        </div>
+        <div class="row row-cols-3 g-5 align-items-center">
+            {% for quote in quotes %}
+                <div class="col-content custom-distance" style="font-family: 'Agbalumo', sans-serif;">
+                    <h4 style="font-family: 'DM Sans', sans-serif;"><b>@{{quote.user}}</b></h4>
+                    <!-- <a href="{% url 'quote:delete_quote' quote.pk %}"><button>Delete</button></a> -->
+                    <hr class="divider">
+                    <h5 style="font-family: 'DM Sans', sans-serif;"><i>"{{quote.quotes}}"</i></h5>
+                    <p style="text-align: right; font-family: 'DM Sans', sans-serif;">-<i><b>{{quote.book_name}}</b></i></p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+
+    <script>
+        window.onload = function () {
+            document.getElementById('sort-order').addEventListener('change', function () {
+                const selectedOption = this.value;
+                const colQuotes = document.querySelectorAll('.col-content');
+                const container = document.querySelector('.container-fluid');
+
+                if (selectedOption === 'recent') {
+                    // Mengurutkan ulasan dari yang paling baru
+                    const sortedQuotes = Array.from(colQuotes).sort((a, b) => {
+                        const dateA = new Date(a.querySelector('.col-content p').textContent);
+                        const dateB = new Date(b.querySelector('.col-content p').textContent);
+                        return dateB - dateA;
+                    });
+
+                    // Mengosongkan container dan menambahkan ulasan yang sudah diurutkan
+                    container.innerHTML = '';
+                    sortedQuotes.forEach((box) => {
+                        container.appendChild(box);
+                    });
+                } else if (selectedOption === 'oldest') {
+                    // Mengurutkan ulasan dari yang paling lama
+                    const sortedQuotes = Array.from(colQuotes).sort((a, b) => {
+                        const dateA = new Date(a.querySelector('.col-content p').textContent);
+                        const dateB = new Date(b.querySelector('.col-content p').textContent);
+                        return dateA - dateB;
+                    });
+
+                    // Mengosongkan container dan menambahkan ulasan yang sudah diurutkan
+                    container.innerHTML = '';
+                    sortedQuotes.forEach((box) => {
+                        container.appendChild(box);
+                    });
+                }
+            });
+        };
+    </script>
+
+{% endblock content %}
