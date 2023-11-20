@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Book(models.Model):
-    number = models.IntegerField(null=True, blank=True)
+    number = models.BigIntegerField(null=True, blank=True)
     title = models.TextField(null=True, blank=True)
     author = models.TextField(null=True, blank=True)
     rating = models.FloatField(null=True, blank=True)
@@ -11,7 +11,7 @@ class Book(models.Model):
     currency = models.TextField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     publisher = models.TextField(null=True, blank=True)
-    page_count = models.IntegerField(null=True, blank=True)
+    page_count = models.BigIntegerField(null=True, blank=True)
     generes = models.TextField(null=True, blank=True)
     ISBN = models.BigIntegerField(null=True, blank=True)
     language = models.TextField(null=True, blank=True)
