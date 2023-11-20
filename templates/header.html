@@ -1,4 +1,5 @@
-{% extends "base.html" %} {% load static %} 
+{% extends "base.html" %} 
+{% load static %} 
 
 {% block meta %}
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
@@ -116,7 +117,9 @@
         </a>
     
         <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0" id="mainMenu">
-            <li class="nav-item" style="margin-left:20px;"><img src="https://imgur.com/v4ZAw0P" id="nav-text2" class="nav-link px-2 text"></li>
+            <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+              <image x="0" y="0" width="50" height="50" xlink:href="{% static 'images/Logo.svg' %}">
+            </svg>
             <li class="nav-item" style="margin-left:20px;"><a href="{% url "lend:show_catalog" %}" id="nav-text2" class="nav-link px-2 text">Catalog</a></li>
             <li class="nav-item" style="margin-left:20px;"><a href="{% url "review:show_main" %}" id="nav-text3" class="nav-link px-2 text">Review Book</a></li>
             <li class="nav-item" style="margin-left:20px;"><a href="{% url "quote:quotes_page"%}" id="nav-text4" class="nav-link px-2 text">Quotes</a></li>
