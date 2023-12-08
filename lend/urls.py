@@ -1,5 +1,5 @@
 from django.urls import path
-from lend.views import show_catalog, get_catalog_json, get_book, get_book_json, preview_lend, show_json, show_sorted, get_book_new
+from lend.views import create_lend_flutter, show_catalog, get_catalog_json, get_book, get_book_json, preview_lend, show_json, show_sorted, get_book_new, delete_lend_flutter
 
 app_name = 'lend'
 
@@ -12,4 +12,6 @@ urlpatterns = [
     path('json/', show_json, name='show_json'),
     path('filter/', show_sorted, name='filter'),
     path('get-book-new/<int:id>/', get_book_new, name='get_book_new'),
+    path('create-lend-flutter/', create_lend_flutter, name="create_lend_flutter"),
+    path('delete-lend-flutter/', delete_lend_flutter, name="delete_lend_flutter"),
 ]

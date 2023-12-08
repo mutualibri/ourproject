@@ -1,4 +1,5 @@
-from django.shortcuts import render
+import datetime
+import json
 
 # Create your views here.
 from django.shortcuts import render
@@ -12,6 +13,8 @@ from lend.forms import LendForm, BookFilterForm
 from django.urls import reverse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, JsonResponse 
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 @login_required(login_url='book/login')
@@ -83,5 +86,43 @@ def preview_lend(request, id):
     return render(request, 'preview_lend.html', {'form': form, 'book': book, 'id':id})
     
 def show_json(request):
-    data = Lend.objects.all()
-    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+    lend = Lend.objects.filter(user=request.user)
+    data = serializers.serialize('json', lend)
+    return HttpResponse(data, content_type="application/json")
+
+@csrf_exempt
+def create_lend_flutter(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        book = Book.objects.get(number=int(data["book"]))
+        start = data["startDate"][:10]
+        end = data["endDate"][:10]
+
+        new_product = Lend.objects.create(
+            user = request.user,
+            book = book,
+            start_date = datetime.datetime.strptime(start, "%Y-%m-%d"),
+            end_date = datetime.datetime.strptime(end, "%Y-%m-%d"),
+            number = int(data["number"]),
+        )
+
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+        
+@csrf_exempt
+def delete_lend_flutter(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        try:
+            book = Lend.objects.get(pk=int(data['pk']))
+            if request.user == book.user:
+                book.delete()
+            return JsonResponse({'status': 'success'})
+        except Book.DoesNotExist:
+            return JsonResponse({'status': 'error', 'message': 'Book not found'})
+    else:
+        return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
+
