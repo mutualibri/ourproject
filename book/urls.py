@@ -4,7 +4,6 @@ from book.views import get_books_by_json, get_books_by_xml, register, login_user
 app_name = 'book'
 
 urlpatterns = [
-    path('', show_main, name='show_main'),
     path('json/', get_books_by_json, name='get_book_by_jsons'),
     path('xml/', get_books_by_xml, name='get_by_xml'),
     path('register/', register, name='register'), 
@@ -12,5 +11,7 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('search/', search, name='searchbar'),
     path('get-product/', get_product_json, name='get_product_json'),
+    path('review/', include("review.urls")),
+
 
 ]

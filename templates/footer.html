@@ -1,8 +1,10 @@
-NEW FOOTER ‼️
+{% extends "base.html" %} {% load static %} 
+
 {% block meta %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <style>
     .footer-07 {
-        background: #152040;
+        background-color: #152040;
       }
       footer {
         padding: 4em 0;
@@ -15,7 +17,7 @@ NEW FOOTER ‼️
         box-sizing: border-box;
       }
       body {
-        font-family: "Poppins", Arial, sans-serif;
+        background-color: #152040;
         font-size: 15px;
         line-height: 1.8;
         font-weight: normal;
@@ -52,7 +54,6 @@ NEW FOOTER ‼️
       h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
         line-height: 1.5;
         font-weight: 400;
-        font-family: "Poppins", Arial, sans-serif;
       }
       .footer-07 .footer-heading .logo {
         color: #fff;
@@ -104,11 +105,10 @@ NEW FOOTER ‼️
             <div class="col-md-12 text-center">
                 <h2 class="footer-heading"><a href="#" class="logo">Mutualibri</a></h2>
                 <p class="menu">
-                    <a href="#">Home</a>
-                    <a href="#">Catalog</a>
-                    <a href="#">Review</a>
-                    <a href="#">Quotes</a>
-                    <a href="#">About Us</a>
+                    <a href="{% url "lend:show_catalog" %}">Catalog</a>
+                    <a href="{% url "review:show_main" %}">Review</a>
+                    <a href="{% url "quote:quotes_page"%}">Quotes</a>
+                    <a href="{% url "book:login" %}">Logout</a>
                 </p>
             </div>
         </div>

@@ -1,5 +1,9 @@
-{% extends 'base.html' %} 
+{% extends "base.html" %} {% load static %} 
 
+{% block meta %}
+<title>Add Quote</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock meta %}
 {% block content %}
     {% include "header.html" %}
     <!-- 536d82, 152040, ffc201, f1e7c6, ffffff -->
@@ -50,6 +54,9 @@
                 </tr>
             </table>
             <div class="container d-flex justify-content-end">
+                <a class="button" href="{% url 'quote:quotes_page' %}"
+                style="background-color: #f1e7c6; border: 2px solid #f1e7c6; border-radius: 30px; color: black;
+                margin-right: 10px; width: 90px; text-align: center;">Back</a>
                 <input class="button" type="submit" value="Add New Quote" 
                 style="background-color: #f1e7c6; border: 2px solid #f1e7c6; border-radius: 30px;">
             </div>
