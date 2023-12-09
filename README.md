@@ -8,9 +8,18 @@
 
 ---
 
-### Nama Aplikasi
-
+### Nama Aplikasi:
 mutualibri
+
+---
+
+### Sumber Dataset Katalog Buku:
+https://www.kaggle.com/datasets/bilalyussef/google-books-dataset
+
+---
+
+### Link Tautan:
+http://mutualibri-a08-tk.pbp.cs.ui.ac.id/
 
 ---
 
@@ -65,10 +74,6 @@ Aplikasi web ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
     * Index
 	
     Di-handle oleh seluruh anggota.
-
-**Admin**
-1. Pengelolaan Buku: Administrator memiliki kemampuan untuk memasukkan, memodifikasi, atau menghapus buku dari daftar katalog. Ini melibatkan tindakan seperti menambahkan data buku yang baru, melakukan perubahan pada informasi buku yang telah ada, serta menghapus buku yang sudah tidak relevan.
-2. Pengelolaan Peminjaman: Administrator dapat mengawasi dan mengatur proses peminjaman buku. Ini melibatkan tindakan seperti menyetujui permintaan peminjaman, mencatat pengembalian buku, dan mengelola status peminjaman.
 
 **User**
 

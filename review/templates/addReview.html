@@ -1,14 +1,15 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% load static %} 
 
 {% block meta %}
+<title>Add Review</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+{% endblock meta %}
 
-{% include "navbar.html" %}
+{% block content %}
+{% include "header.html" %}
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap');
-
 *, body {
-    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -17,7 +18,7 @@
 
 html, body {
     height: 100%;
-    background-color: #152733;
+    background-color: #FFC200;
     overflow-y: auto;
 }
 
@@ -47,7 +48,7 @@ html, body {
 }
 
 .form-content .form-items {
-    border: 3px solid #FFF200;
+    border: 3px solid #FFC200;
     padding: 40px;
     display: inline-block;
     width: 100%;
@@ -195,4 +196,4 @@ html, body {
 
 {% include "footer.html" %}
 
-{% endblock %}
+{% endblock content %}

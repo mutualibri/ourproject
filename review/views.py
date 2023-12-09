@@ -10,10 +10,12 @@ from django.contrib.auth.models import User
 from django.core import serializers
 from django.http import JsonResponse
 from book.models import Book
+from django.contrib.auth.decorators import login_required
 
+# Create your views here.
+@login_required(login_url='book/login')
 def show_main(request):
     sort_order = request.GET.get('sort_order', 'recent')  # Defaultnya, urutkan berdasarkan yang terbaru
-
     if sort_order == 'recent':
         reviews = Item.objects.all().order_by('-id')  # Urutkan berdasarkan yang terbaru (default)
     else:
@@ -21,7 +23,8 @@ def show_main(request):
 
     context = {
         'reviews': reviews,
-        'sort_order': sort_order
+        'sort_order': sort_order,
+        'name':request.user.username
     }
 
     return render(request, "mainReview.html", context)
