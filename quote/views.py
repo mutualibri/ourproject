@@ -89,9 +89,8 @@ def create_product_flutter(request):
 
         new_product = Quotes.objects.create(
             user = request.user,
-            name = data["name"],
-            price = int(data["price"]),
-            description = data["description"]
+            book_name = data["book_name"],
+            quotes = data["quotes"],
         )
 
         new_product.save()
