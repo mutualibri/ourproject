@@ -31,6 +31,7 @@ def add_quote(request):
     if form.is_valid() and request.method == "POST":
         quote = form.save(commit=False)
         quote.user = request.user
+        quote.username = request.user.username
         quote.save()
         return HttpResponseRedirect(reverse('quote:quotes_page'))
 
@@ -74,7 +75,7 @@ def add_quote_ajax(request):
         quotes = request.POST.get("quotes")
         user = "request.user"
 
-        new_quote = Quotes(book_name=book_name, quote=quotes, user=user)
+        new_quote = Quotes(book_name=book_name, quote=quotes, user=user, username = user.username)
         new_quote.save()    
 
         return HttpResponse(b"CREATED", status=201)
@@ -91,6 +92,7 @@ def create_product_flutter(request):
             user = request.user,
             book_name = data["book_name"],
             quotes = data["quotes"],
+            username = request.user.username,
         )
 
         new_product.save()
