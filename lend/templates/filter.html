@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% load static %} 
+
+{% block meta %}
+<title>Filter</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+{% endblock meta %}
+
+{% block content %}
+<form method="get" action="">
+    {{ form.title.label_tag }} {{ form.title }}
+    {{ form.author.label_tag }} {{ form.author }}
+    <button type="submit">Filter</button>
+</form>
+<ul>
+    {% for book in books %}
+        <li style="color:black;">{{ book.title }} by {{ book.author }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}

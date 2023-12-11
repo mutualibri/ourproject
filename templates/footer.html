@@ -1,0 +1,124 @@
+{% extends "base.html" %} {% load static %} 
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<style>
+    .footer-07 {
+        background-color: #152040;
+      }
+      footer {
+        padding: 4em 0;
+      }
+      article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+        display: block;
+      }
+      *, ::before, ::after {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #152040;
+        font-size: 15px;
+        line-height: 1.8;
+        font-weight: normal;
+      }
+      @media (min-width: 1200px) {
+        #containerid {
+          max-width: 1140px;
+        }
+      }
+      #containerid {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      .text-center {
+        text-align: center !important;
+      }
+      @media (min-width: 768px) {
+        .col-md-12 {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+          max-width: 100%;
+        }
+      }
+      .footer-07 .footer-heading {
+        font-size: 30px;
+        color: #fff;
+        font-weight: 700;
+        margin-bottom: 30px;
+      }
+      h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+        line-height: 1.5;
+        font-weight: 400;
+      }
+      .footer-07 .footer-heading .logo {
+        color: #fff;
+      }
+      .footer-07 a {
+        color: #a3de83;
+      }
+      a {
+        -webkit-transition: .3s all ease;
+        -o-transition: .3s all ease;
+        transition: .3s all ease;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+        background-color: transparent;
+      }
+      .footer-07 .menu {
+        margin-bottom: 30px;
+      }
+      .footer-07 p {
+        color: rgba(255, 255, 255, 0.3);
+      }
+      p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+      .footer-07 .menu a {
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .p-0 {
+        padding: 0 !important;
+      }
+      ol, ul, dl {
+        margin-top: 0;
+        margin-bottom: 1rem;
+      }
+</style>
+{% endblock meta %}
+
+{% block content %}
+<footer class="footer-07">
+    <div id="containerid">
+        <div class="row justify-content-center">
+            <div class="col-md-12 text-center">
+                <h2 class="footer-heading"><a href="#" class="logo">Mutualibri</a></h2>
+                <p class="menu">
+                    <a href="{% url "lend:show_catalog" %}">Catalog</a>
+                    <a href="{% url "review:show_main" %}">Review</a>
+                    <a href="{% url "quote:quotes_page"%}">Quotes</a>
+                    <a href="{% url "book:login" %}">Logout</a>
+                </p>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12 text-center">
+                <p class="copyright">
+                Copyright ©<script>document.write(new Date().getFullYear());</script> All rights reserved | This web is made with <i class="ion-ios-heart" aria-hidden="true" style:readonly></i> by <a href="">Mutualibri</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock content %}

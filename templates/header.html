@@ -1,0 +1,172 @@
+{% extends "base.html" %} 
+{% load static %} 
+
+{% block meta %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <style>
+        .p-2 {
+            padding: 1rem !important;
+            position:fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+        .text-bg-dark {
+            color: #fff !important; /* Teks berwarna putih */
+        }
+
+        .navbar-bg-dark {
+            background-color: #152040 !important; /* Latar belakang navbar (#27374D) */
+        }
+
+        .form-control-dark {
+            border-color: #526D82 !important; /* Warna border form input (#526D82) */
+            color: black !important; /* Warna teks dalam form input (putih) */
+        }
+
+        .btn-outline-light {
+            color: #fff !important; /* Warna teks tombol (putih) */
+            border-color: #fff !important; /* Warna border tombol (putih) */
+        }
+
+        .btn-warning {
+            background-color: #526D82 !important; /* Latar belakang tombol Sign-up (#526D82) */
+            color: #fff !important; /* Warna teks tombol (putih) */
+            border-color: #fff !important; /* Warna border tombol (putih) */
+        }
+
+        /* Aturan CSS untuk mengubah warna teks tombol saat dihover */
+        .btn-outline-light:hover {
+            color: #000 !important; /* Warna teks menjadi hitam saat dihover */
+        }
+
+        .btn-warning:hover {
+            color: #000 !important; /* Warna teks tombol Sign-up menjadi hitam saat dihover */
+        }
+
+        #mainMenu li > a:hover::before,
+        #mainMenu li > a.active::before {
+            -webkit-transform: scale(1, 1);
+            -ms-transform: scale(1, 1);
+            transform: scale(1, 1);
+            -webkit-transform-origin: left center;
+            -ms-transform-origin: left center;
+            transform-origin: left center;
+        }
+
+        [data-target="#mainMenu"] {
+            position: relative;
+            z-index: 999;
+          }
+          
+          #mainMenu li > a {
+            font-size: 12px;
+            letter-spacing: 1px;
+            color: #fff;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+          }
+          
+          #mainMenu li > a {
+            color: #fff;
+            text-decoration: none;
+          }
+          
+          #mainMenu li:not(:last-of-type) {
+            margin-right: 30px;
+          }
+          
+          #mainMenu li > a::before {
+            position: absolute;
+            content: "";
+            width: calc(100% - 1px);
+            height: 1px;
+            background: #fff;
+            bottom: -6px;
+            left: 0;
+            -webkit-transform: scale(0, 1);
+            -ms-transform: scale(0, 1);
+            transform: scale(0, 1);
+            -webkit-transform-origin: right center;
+            -ms-transform-origin: right center;
+            transform-origin: right center;
+            z-index: -1;
+          
+            -webkit-transition: transform 0.5s ease;
+            transition: transform 0.5s ease;
+          }
+
+          .highlighted-text {
+            color: #FFC200 !important;
+        }
+        /* Set the background color for the entire HTML */
+    </style>
+{% endblock meta %}
+<body>
+{% block content %}
+  <header class="p-2 navbar-bg-dark"> <!-- Menggunakan warna latar belakang navbar dari Bootstrap -->
+    <div>
+      <div class="d-flex flex-wrap align-items-center justify-content-between justify-content-lg-start">
+        <a href="/" class="d-flex align-items-foreground mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+    
+        <ul class="nav col-12 col-lg-auto mb-2 justify-content-center mb-md-0" id="mainMenu">
+            <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+              <image x="0" y="0" width="50" height="50" xlink:href="{% static 'images/Logo.svg' %}">
+            </svg>
+            <li class="nav-item" style="margin-left:20px;"><a href="{% url "lend:show_catalog" %}" id="nav-text2" class="nav-link px-2 text">Catalog</a></li>
+            <li class="nav-item" style="margin-left:20px;"><a href="{% url "review:show_main" %}" id="nav-text3" class="nav-link px-2 text">Review Book</a></li>
+            <li class="nav-item" style="margin-left:20px;"><a href="{% url "quote:quotes_page"%}" id="nav-text4" class="nav-link px-2 text">Quotes</a></li>
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 ml-auto" action="{% url 'book:searchbar' %}" method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+              <input type="text" id="search" class="form-control form-control-dark" placeholder="Search books" aria-label="Search" name="searched">
+              <button type="submit" class="btn btn-outline-light">Search</button> <!-- Menggunakan kelas Bootstrap untuk tombol -->
+            </div>
+          </form>
+        
+          <a href="{% url "book:login" %}"><button type="" class="btn btn-outline-light">Logout</button></a>
+      
+       
+      </div>
+    </div>
+  </header>
+{% endblock content %}
+<script>
+    {% comment %} var currentURL1 = window.location.pathname;
+    var targetURL1 = "";
+    var targetURL2 = "review/";
+    var targetURL3 = "";
+    var targetURL4 = "";
+    var targetURL5 = "";
+    var navText1 = document.getElementById("nav-text1");
+    var navText2 = document.getElementById("nav-text2");
+    var navText3 = document.getElementById("nav-text3");
+    var navText4 = document.getElementById("nav-text4");
+    var navText5 = document.getElementById("nav-text5");
+    if (currentURL === targetURL1) {
+        navText1.classList.add("highlighted-text");
+    }
+    if (currentURL === targetURL2) {
+        navText2.classList.add("highlighted-text");
+    }
+    if (currentURL === targetURL3) {
+        navText3.classList.add("highlighted-text");
+    }
+    if (currentURL === targetURL4) {
+        navText3.classList.add("highlighted-text");
+    }
+    if (currentURL === targetURL5) {
+        navText3.classList.add("highlighted-text");
+    } {% endcomment %}
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>

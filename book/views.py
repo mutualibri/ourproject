@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse 
+from django.http import HttpResponse, JsonResponse 
 from django.core import serializers
 from book. models import Book
 from django.shortcuts import redirect
@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 @login_required(login_url='/login')
@@ -38,7 +39,7 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('book:show_main')
+            return redirect('lend:show_catalog')
         else:
             messages.info(request, 'Sorry, incorrect username or password. Please try again.')
     context = {}
@@ -55,3 +56,15 @@ def get_books_by_json (request):
 def get_books_by_xml(request):
     data = Book.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+def search(request):
+    if request.method == "POST":
+        searched = request.POST.get('searched')
+        books = Book.objects.filter(title__contains=searched)
+        return render(request, 'search.html', {'searched': searched, 'books': books})
+    else:
+        return render(request, 'search.html', {})
+
+def get_product_json(request):
+    data = Book.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
