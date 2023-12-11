@@ -6,8 +6,8 @@ from django.contrib.auth import logout as auth_logout
 
 @csrf_exempt
 def login(request):
-    username = request.POST['username']
-    password = request.POST['password']
+    username = request.POST.get('username', None)
+    password = request.POST.get('password', None)
     user = authenticate(username=username, password=password)
     if user is not None:
         if user.is_active:
