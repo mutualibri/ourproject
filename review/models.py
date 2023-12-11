@@ -7,7 +7,9 @@ from django.dispatch import receiver
 from datetime import datetime
 
 class Item(models.Model):
-    books = models.ForeignKey(Book, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    username = models.TextField(null=True)
+    #books = models.ForeignKey(Book, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=255, null=True)
     review = models.TextField(max_length=1000, null=True)
     rating = models.IntegerField(default=0, 
@@ -17,12 +19,15 @@ class Item(models.Model):
     ], null=True)
     date_added = models.DateField(auto_now_add=True, null=True)
 
+    # @property
+    # def get_username(self):
+    #     return self.user.username
+
     class Meta:
         ordering = ['-date_added']
 
 
 class Review(models.Model):
-    username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=30, null=True)
     likes_count = models.IntegerField(default=False)
     dislikes_count = models.IntegerField(default=False)

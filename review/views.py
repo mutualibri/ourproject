@@ -1,3 +1,4 @@
+import json
 from django.http import HttpResponseRedirect
 from review.forms import ReviewForm
 from django.urls import reverse
@@ -24,7 +25,7 @@ def show_main(request):
     context = {
         'reviews': reviews,
         'sort_order': sort_order,
-        'name':request.user.username
+        'name':"name",
     }
 
     return render(request, "mainReview.html", context)
@@ -33,18 +34,27 @@ def show_main(request):
 @csrf_exempt
 def create_review_ajax(request):
     if request.method == 'POST':
-        username = request.POST.get("username")
-        name = request.POST.get("name")
+        #username = request.POST.get("username")
+        #name = request.POST.get("name")
         rating = request.POST.get("rating")
         title = request.POST.get("title")
         date_added = date.today()
         review = request.POST.get("review")
-        likes_count = request.POST.get("likes_count")
-        dislikes_count = request.POST.get("dislikes_count")
-        books = request.POST.get("books")
+        #likes_count = request.POST.get("likes_count")
+        #dislikes_count = request.POST.get("dislikes_count")
+        #books = request.POST.get("books")
         user = request.user
-        new_item = Item(books=books, title=title, review=review, rating=rating)
-        new_review = Review(date_added=date_added, username=user, name=name, likes_count=likes_count, dislikes_count=dislikes_count)
+        new_item = Item(
+            title=title,
+            review=review,
+            date_added=date_added,
+            user=user,
+            username=user.username,
+        )
+        new_review = Review(
+            date_added=date_added,
+            user=user,
+        )
         new_item.save()
         new_review.save()
 
@@ -56,6 +66,9 @@ def create_review(request):
     form = ReviewForm(request.POST or None)
 
     if form.is_valid() and request.method == "POST":
+        review = form.save(commit=False)
+        review.user = request.user
+        review.username = request.user.username
         form.save()
         return HttpResponseRedirect(reverse('review:show_main'))
 
@@ -104,3 +117,25 @@ def toggle_like_dislike(request):
         return HttpResponse("OK", status=200)
 
     return HttpResponseNotFound()
+
+@csrf_exempt
+#@login_required
+def create_review_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+
+        new_review = Item.objects.create(
+            rating = int(data["rating"]),
+            title = data["title"],
+            date_added = date.today(),
+            review = data["review"],
+            user = request.user,
+            username = request.user.username,
+        )
+
+        new_review.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
