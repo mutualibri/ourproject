@@ -9,7 +9,7 @@ urlpatterns = [
     path('add_review', create_review, name='create_review'),
     path('json/', show_json, name='show_json'),
     path('json/<int:id>/', show_json_by_id, name='show_json_by_id'),
-    path('show-main/recent/', views.show_main, {'sort_order': 'recent'}, name='show_main_recent'),  # View for recent sorting
-    path('show-main/oldest/', views.show_main, {'sort_order': 'oldest'}, name='show_main_oldest'),  # View for oldest sorting
+    path('show-main/recent/', views.show_main, {'sort_order': 'recent'}, name='show_main_recent'),  
+    path('show-main/oldest/', views.show_main, {'sort_order': 'oldest'}, name='show_main_oldest'),  
     path('create-flutter/', create_review_flutter, name='create_review_flutter'),
 ]

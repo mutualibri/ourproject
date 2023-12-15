@@ -1,4 +1,5 @@
-from django.shortcuts import render
+import datetime
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, JsonResponse 
 from django.core import serializers
 from book. models import Book
@@ -8,6 +9,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from lend.models import Lend
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 
 # Create your views here.

@@ -13,7 +13,6 @@ from django.http import JsonResponse
 from book.models import Book
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
 @login_required(login_url='book/login')
 def show_main(request):
     sort_order = request.GET.get('sort_order', 'recent')  # Defaultnya, urutkan berdasarkan yang terbaru
@@ -34,15 +33,10 @@ def show_main(request):
 @csrf_exempt
 def create_review_ajax(request):
     if request.method == 'POST':
-        #username = request.POST.get("username")
-        #name = request.POST.get("name")
         rating = request.POST.get("rating")
         title = request.POST.get("title")
         date_added = date.today()
         review = request.POST.get("review")
-        #likes_count = request.POST.get("likes_count")
-        #dislikes_count = request.POST.get("dislikes_count")
-        #books = request.POST.get("books")
         user = request.user
         new_item = Item(
             title=title,
@@ -119,7 +113,6 @@ def toggle_like_dislike(request):
     return HttpResponseNotFound()
 
 @csrf_exempt
-#@login_required
 def create_review_flutter(request):
     if request.method == 'POST':
         
