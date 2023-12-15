@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound, JsonResponse
 from django.core import serializers
@@ -30,6 +31,7 @@ def add_quote(request):
     if form.is_valid() and request.method == "POST":
         quote = form.save(commit=False)
         quote.user = request.user
+        quote.username = request.user.username
         quote.save()
         return HttpResponseRedirect(reverse('quote:quotes_page'))
 
@@ -73,9 +75,28 @@ def add_quote_ajax(request):
         quotes = request.POST.get("quotes")
         user = "request.user"
 
-        new_quote = Quotes(book_name=book_name, quote=quotes, user=user)
+        new_quote = Quotes(book_name=book_name, quote=quotes, user=user, username = user.username)
         new_quote.save()    
 
         return HttpResponse(b"CREATED", status=201)
 
     return HttpResponseNotFound()
+
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+
+        new_product = Quotes.objects.create(
+            user = request.user,
+            book_name = data["book_name"],
+            quotes = data["quotes"],
+            username = request.user.username,
+        )
+
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)

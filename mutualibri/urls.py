@@ -22,5 +22,6 @@ urlpatterns = [
     path('book/', include("book.urls")),
     path('', include("lend.urls")),
     path('review/', include("review.urls")),
-    path('quote/', include("quote.urls"))
+    path('quote/', include("quote.urls")),
+    path('auth/', include('authentication.urls')),
 ]

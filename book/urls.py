@@ -11,4 +11,7 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('search/', search, name='searchbar'),
     path('get-product/', get_product_json, name='get_product_json'),
+    path('review/', include("review.urls")),
+
+
 ]
