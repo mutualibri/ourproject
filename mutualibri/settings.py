@@ -146,7 +146,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://mutualibri-a08-tk.pbp.cs.ui.ac.id']
+CSRF_TRUSTED_ORIGINS = ['https://mutualibri-a08-tk.pbp.cs.ui.ac.id', 'http://localhost:62403']
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
@@ -154,3 +154,15 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SAMESITE = 'None'
 SESSION_COOKIE_SAMESITE = 'None'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:62403",  # Replace this with your Flutter app's origin
+    "http://localhost:*",       # Allow any localhost port during development
+]
+
+APPEND_SLASH = False
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    # Add other backends if needed
+]

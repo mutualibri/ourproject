@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 class Book(models.Model):
@@ -17,3 +19,4 @@ class Book(models.Model):
     language = models.TextField(null=True, blank=True)
     published_date = models.TextField(null=True, blank=True)
     image = models.TextField(null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

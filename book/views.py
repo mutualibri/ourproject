@@ -1,3 +1,5 @@
+from collections import UserDict
+import json
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse 
 from django.core import serializers
@@ -8,6 +10,8 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
+from book.models import User
+
 
 
 # Create your views here.
