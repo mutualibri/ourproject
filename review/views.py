@@ -45,12 +45,7 @@ def create_review_ajax(request):
             user=user,
             username=user.username,
         )
-        new_review = Review(
-            date_added=date_added,
-            user=user,
-        )
         new_item.save()
-        new_review.save()
 
         return HttpResponse(b"CREATED", status=201)
 
@@ -92,10 +87,10 @@ def toggle_like_dislike(request):
         user = request.user
 
         try:
-            review = Review.objects.get(item_id=review_id, user=user)
-        except Review.DoesNotExist:
+            review = Item.objects.get(item_id=review_id, user=user)
+        except Item.DoesNotExist:
             # Jika review belum ada, buat review baru
-            review = Review(item_id=review_id, user=user)
+            review = Item(item_id=review_id, user=user)
 
         action = request.POST.get("action")
 
