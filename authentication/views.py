@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout as auth_logout
+from django.contrib.auth.models import User
 
 @csrf_exempt
 def login(request):
@@ -28,7 +29,7 @@ def login(request):
     else:
         return JsonResponse({
             "status": False,
-            "message": "Login gagal, periksa kembali email atau kata sandi."
+            "message": "Login gagal, periksa kembali username atau kata sandi."
         }, status=401)
     
 @csrf_exempt
@@ -47,3 +48,16 @@ def logout(request):
         "status": False,
         "message": "Logout gagal."
         }, status=401)
+
+@csrf_exempt
+def register_flutter(request):
+    username = request.POST.get('username')
+    password = request.POST.get('password')
+
+    if User.objects.filter(username=username).exists():
+        return JsonResponse({"status": False, "message": "Username already used."}, status=404)
+
+    user = User.objects.create_user(username=username, password=password)
+    user.save()
+
+    return JsonResponse({"username": user.username, "status": True, "message": "Register successful!"}, status=201)
